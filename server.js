@@ -7,6 +7,8 @@ import workerRouter from "./routes/workerRoute.js";
 import itemRouter from "./routes/itemRoute.js";
 import orderRouter from "./routes/orderRoute.js";
 import orderDetailsRouter from "./routes/orderDetailsRoute.js";
+import receiptRouter from "./routes/receiptRoute.js";
+
 import cors from "cors";
 
 const app = express();
@@ -20,6 +22,7 @@ app.use("/api", workerRouter);
 app.use("/api", itemRouter);
 app.use("/api", orderRouter);
 app.use("/api", orderDetailsRouter);
+app.use("/api", receiptRouter);
 
 const port = process.env.PORT || 8080;
 app.listen(port, () => console.log("connect"));
