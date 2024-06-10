@@ -1,10 +1,10 @@
 import Worker from "../models/worker.js";
 
 export const createWorker = async (req, res) => {
-  const { name, password } = req.body;
+  const { name, email, password, isAdmin } = req.body;
 
   try {
-    const newWorker = await Worker.create({ name, password });
+    const newWorker = await Worker.create({ name, email, password, isAdmin });
     res
       .status(201)
       .json({ message: "Worker created successfully", worker: newWorker });

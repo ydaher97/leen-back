@@ -1,10 +1,10 @@
 import Customer from "../models/customer.js";
 
 const createUser = async (req, res) => {
-  const { name, email, password } = req.body;
+  const { name } = req.body;
 
   try {
-    const newUser = await Customer.create({ name, email, password });
+    const newUser = await Customer.create({ name });
 
     res
       .status(201)
