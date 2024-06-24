@@ -4,7 +4,7 @@ export const createOrder = async (req, res) => {
   const { customerId, items, date, workerId } = req.body;
 
   try {
-    const orderDetails = new Order({
+    const details = new Order({
       customerId,
       items: items.map((item) => ({
         itemId: item.itemId,
@@ -16,9 +16,9 @@ export const createOrder = async (req, res) => {
       workerId,
     });
 
-    await orderDetails.save();
+    await details.save();
 
-    res.status(201).json({ orderDetails });
+    res.status(201).json({ details });
   } catch (error) {
     res
       .status(500)

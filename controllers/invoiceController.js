@@ -4,7 +4,7 @@ export const createInvoice = async (req, res) => {
   const { customerId, items, date, workerId } = req.body;
 
   try {
-    const invoiceDetails = new Invoice({
+    const details = new Invoice({
       customerId,
       items: items.map((item) => ({
         itemId: item.itemId,
@@ -16,13 +16,13 @@ export const createInvoice = async (req, res) => {
       workerId,
     });
 
-    await invoiceDetails.save();
+    await details.save();
 
-    res.status(201).json({ invoiceDetails });
+    res.status(201).json({ details });
   } catch (error) {
     res
       .status(500)
-      .json({ message: "Failed to create order", error: error.message });
+      .json({ message: "Failed to create invoice", error: error.message });
   }
 };
 
