@@ -70,11 +70,11 @@ export const getOrdersByCustomerId = async (req, res) => {
     const orders = await Delivery.find({ customerId });
 
     // If no orders found
-    if (!orders || orders.length === 0) {
-      return res
-        .status(404)
-        .json({ message: "No orders found for this customer" });
-    }
+    // if (!orders || orders.length === 0) {
+    //   return res
+    //     .status(404)
+    //     .json({ message: "No orders found for this customer" });
+    // }
 
     // Return the orders
     res.status(200).json({ orders });
